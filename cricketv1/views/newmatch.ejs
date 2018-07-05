@@ -1,0 +1,81 @@
+<% include partials/navbar %>
+<% include partials/head %>
+<% include partials/bgtop %>
+
+<h2 class="text-center">Well folks, Lets get started for the exciting match</h2>
+    <h5 class="text-primary">Fill out this form to continue</h5>
+    </div>
+<div class="container-fluid">
+    <form action="/scorecard" method="post" class="well form-inline">
+        <h4>Teams Setup</h4>
+      
+        <div class="form-group">
+            <label for="team1">Choose Team1</label>
+            <!--<input type="text" class="form-control" placeholder="Team 1" width="20px" height="50px" name="match[teamA]">-->
+            <select class="form-control" id="sell"  name="teamA">
+               <% teams.forEach(function(team){ %>
+                <option name="teamB" value="<%= team.teamName%>">
+                    <%= team.teamName%>
+                </option>
+               <% }); %>
+                
+             </select>
+        </div>
+        <div class="form-group">
+            <label for="team1">Choose Team2</label>
+            <!--<input type="text" class="form-control" placeholder="Team 2" width="20px" height="50px" name="match[teamA]">-->
+            <select class="form-control" id="sel1" name="teamB">
+               <% teams.forEach(function(team){ %>
+                <option name="teamB" value="<%= team.teamName%>">
+                    <%= team.teamName%>
+                </option>
+               <% }); %>
+                
+             </select>
+        </div>
+        <div class="form-group">
+            <label for="team1">No.of Overs </label>
+            <input type="text" class="form-control" placeholder="Number of Overs" width="20px" height="50px" name="numOfOvers">
+            
+        </div>
+        <h4> Who won the toss?</h4>
+        <div class="form-group">
+            
+            <!--<input type="text" class="form-control" placeholder="Team 1" width="20px" height="50px" name="match[teamA]">-->
+            <select class="form-control" id="sel1"  name="tossWon">
+               <% teams.forEach(function(team){ %>
+                <option name="teamA" value="<%= team.teamName%>">
+                    <%= team.teamName%>
+                </option>
+               <% }); %>
+                
+             </select>
+        </div>
+        <script>
+        $("#sell").change(function(){ 
+           console.log("select value"); 
+           console.log($("#sell").val());
+           
+         })
+        </script>
+        <div class="form-group">
+            <label for="team1">Chose To</label>
+            <!--<input type="text" class="form-control" placeholder="Team 1" width="20px" height="50px" name="match[teamA]">-->
+            <select class="form-control" id="sel1"  name="choseTo">
+              
+                <option value="Bat">
+                   Bat
+                </option>
+                <option value="Bowl">
+                   Bowl
+                </option>
+               
+                
+             </select>
+        </div>
+        <button type="reset" class="btn btn-default">
+            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+        </button>
+        <input type="submit" class="btn btn-small btn-primary">
+    </form>
+</div>

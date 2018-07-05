@@ -1,0 +1,166 @@
+<% include partials/head %>
+<% include partials/navbar %>
+
+<div class="container text-center">
+    <div class="col-md-6">
+        <h3>Enter the data for ball 0.3</h3>
+       
+        <form id="scoreform" action="/scores/<%= team._id %>/scorecard/newover/<%= over._id %>" method="POST">
+        <button class="col-md-4 btn btn-sm btn-default"   name="score" height="300px" value="0">
+            <h3>0</h3>
+        </button>
+        <button class="col-md-4 btn btn-sm btn-default"   name="score" height="300px" value="1">
+            <h3>1</h3>
+        </button>
+        <button class="col-md-4 btn btn-sm btn-default" height="300px"   name="score" value="2">
+            <h3>2</h3>
+        </button>
+        <button class="col-md-4 btn btn-sm btn-default" height="300px" value="3"   name="score">
+            <h3>3</h3>
+        </button>
+         <button class="col-md-4 btn btn-sm btn-default btn-primary" height="300px" value="4"   name="score">
+            <h3>4</h3>
+        </button>
+        <button class="col-md-4 btn btn-sm btn-default btn-success" height="300px"  value="6" name="score"  >
+            <h3>6</h3>
+        </button>
+        
+        <button class="col-md-4 btn btn-sm btn-default btn-warning" height="300px"  value="Wide" name="score"  >
+            <h3>Wide</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default"  value="Wd+1" name="score"  >
+            <h3>+1</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default"  value="Wd+2" name="score"  >
+            <h3>+2</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default"  value="Wd+3" name="score"  >
+            <h3>+3</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default"  value="Wd+4" name="score"  >
+            <h3>+4</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default btn-warning"  value="Nb" height="300px"    name="score">
+            <h3>NoB</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default"  value="Nb+1"  name="score"  >
+            <h3>+1</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default"  value="Nb+2"  name="score"  >
+            <h3>+2</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default"  value="Nb+3" name="score"   >
+            <h3>+3</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default"   value="Nb+4" name="score"  >
+            <h3>+4</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default"   value="Nb+6" name="score"  >
+            <h3>+6</h3>
+        </button>
+        <button class="col-md-4 btn btn-sm btn-default btn-warning"  value="b"  name="score"   height="300px">
+            <h3>Byes</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default" name="score" value="1b"  >
+            <h3>+1</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default" value="2b"  name="score"  >
+            <h3>+2</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default"  value="3b" name="score"  >
+            <h3>+3</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default" value="4b"  name="score"  >
+            <h3>+4</h3>
+        </button>
+         <button class="col-md-4 btn btn-sm btn-default btn-warning"  name="score"   height="300px">
+            <h3>Leg Byes</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default" name="score"  value="1Lb"  >
+            <h3>+1</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default"  name="score"  value="2Lb"  >
+            <h3>+2</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default"  value="3Lb" name="score"  >
+            <h3>+3</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default"  value="4Lb" name="score"  >
+            <h3>+4</h3>
+        </button>
+        <button class="col-md-3 btn btn-sm btn-default btn-danger" value="W" name="score"   height="300px">
+            <h3>Wicket</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default" value="R/O" name="score"  >
+            <h3>Run Out</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default" value="W1" name="score"  >
+            <h3>+1</h3>
+        </button>
+        <button class="col-md-2 btn btn-sm btn-default" value="W2" name="score"  >
+            <h3>+2</h3>
+        </button>
+        <button class="col-md-3 btn btn-danger btn-sm btn-default" value="W" name="score"  >
+            <h3>Caught</h3>
+        </button>
+        
+        </form>
+        
+    </div>
+    <div class="col-md-6">
+        
+        <h1><%= overTotal %></h1>
+        
+        <h3>THIS OVER</h3>
+        <ul class="list-inline">
+            <% over.balls.forEach(function(ball){ %>
+               <li class='list-group-item'><%= ball%></li> 
+            <%   }); %>
+        </ul>
+        </div>
+        <form action="/scores/<%= team._id%>/scorecard" method="POST">
+            <button type="submit">NEXT</button>
+        </form>
+    </div>
+    
+</div>
+
+<script>
+
+var over = [];
+var rightball = 0;
+
+
+    for(var i=1;i<15;i++){
+    var fired_button = $(".list-group-item:nth-child("+i+")").text();
+    console.log(fired_button);
+    
+    //$(".this-ball").text(fired_button);
+    console.log("iteration: "+i);
+     
+        var overlen = 6;
+        
+        if(fired_button!=""){
+                if(fired_button == "Wd" ||fired_button == "Wd+1" ||fired_button == "Wd+2" || fired_button == "Wd+3" ||fired_button == "Wd+4" ||fired_button == "Nb"||fired_button == "Nb+1"||fired_button == "Nb+2"||fired_button == "Nb+3"||fired_button == "Nb+4"||fired_button == "Nb+5"||fired_button == "Nb+6")
+                {
+                    overlen = overlen+1;
+                    over.push(fired_button);
+                    console.log(over);
+                    //console.log(over);
+                    //$(".list-inline").append(" <li class='list-group-item'>" +fired_button+ "</li> ");
+                    
+                }
+                else{
+                    over.push(fired_button);
+                    console.log(over);
+                    rightball= rightball+1;
+                    console.log("rightball: "+rightball);
+                   // $(".btn").addClass("disabled");
+                }
+        }
+        else if(rightball >= 6){
+            $(".btn").addClass("disabled");
+        }
+  
+    }
+</script>

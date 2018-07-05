@@ -1,0 +1,20 @@
+{
+  "name": "cricketv1",
+  "version": "1.0.0",
+  "description": "Cricket scorecard v1",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Maharshi Vishwakarma",
+  "license": "ISC",
+  "dependencies": {
+    "body": "^5.1.0",
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "method-override": "^2.3.10",
+    "parser": "^0.1.4",
+    "request": "^2.83.0"
+  }
+}

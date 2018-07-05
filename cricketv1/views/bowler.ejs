@@ -1,0 +1,26 @@
+<% include partials/navbar %>
+<% include partials/head %>
+<% include partials/bgtop %>
+
+ <form id="scoreform" action="/scores/<%= team._id %>/scorecard/newover" method="POST">
+            
+             <div class="form-group">
+            <label for="team1">Choose Bowler</label>
+            <!--<input type="text" class="form-control" placeholder="Team 1" width="20px" height="50px" name="match[teamA]">-->
+            <select class="form-control" id="bowler"  name="bowler" type="submit">
+              
+                 <% battingFirst[0].player.forEach(function(player){ %>
+                <option name="player2" value="<%= player%>">
+                    <%= player %>
+                </option>
+               <% }); %>
+             </select>
+        </div>
+
+</form>
+
+<script>
+      $("#bowler").change(function(){
+        $("#scoreform").submit();
+    });
+</script>

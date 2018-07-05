@@ -1,0 +1,38 @@
+<% include partials/navbar %>
+<% include partials/head %>
+<% include partials/bgtop %>
+
+<h2>choose the opening batsmen </h2>
+<% console.log(team)%>
+<form action="/scores/<%= team._id %>/scorecard" method="post" class="well form-inline">
+        <h4>Teams Setup</h4>
+        <div class="form-group">
+            <label for="team1">Choose Striker</label>
+            <!--<input type="text" class="form-control" placeholder="Team 1" width="20px" height="50px" name="match[teamA]">-->
+            <select class="form-control" id="sell"  name="teamA">
+              
+                 <% battingFirst[0].player.forEach(function(player){ %>
+                <option name="player1" value="<%= player%>">
+                    <%= player %>
+                </option>
+               <% }); %>
+             </select>
+        </div>
+        <div class="form-group">
+            <label for="team1">Choose Non-Striker</label>
+            <!--<input type="text" class="form-control" placeholder="Team 1" width="20px" height="50px" name="match[teamA]">-->
+            <select class="form-control" id="sell"  name="teamA">
+              
+                 <% battingFirst[0].player.forEach(function(player){ %>
+                <option name="player2" value="<%= player%>">
+                    <%= player %>
+                </option>
+               <% }); %>
+             </select>
+        </div>
+        
+        <button type="reset" class="btn btn-default">
+            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+        </button>
+        <input type="submit" class="btn btn-small btn-primary">
+    </form>

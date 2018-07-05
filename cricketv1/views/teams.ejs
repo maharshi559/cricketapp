@@ -1,0 +1,14 @@
+<% include partials/head %>
+<% include partials/navbar %>
+<% include partials/bgtop %>
+
+<div class="container">
+<div class="list-group">
+  <a href="#" class="list-group-item active">
+    <h3>List of Teams</h3>
+  </a>
+  <% teams.forEach( function(team){ %>
+      <a href="/teams/<%=team._id %>" class="list-group-item"><%= team.teamName %></a>
+  <% }); %>
+</div>
+</div>

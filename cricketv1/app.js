@@ -15,6 +15,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
+//comment for commit
 
 //mongoose setup
 mongoose.connect("mongodb://localhost/cricketapp",  {useMongoClient: true});
